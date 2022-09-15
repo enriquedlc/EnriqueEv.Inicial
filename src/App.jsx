@@ -1,12 +1,25 @@
-import Header from "./components/Header.jsx";
-import Card from "./components/Card.jsx";
-const App = () => {
-  return (                        
-  <>
-    <Header title='Tema 05 Práctica 1'/>
-    <Card name='Eduardo Camacho' birthday='2002/01/20'/>
-  </>
+import { useState } from 'react';
+import Header from './components/Header';
+import TaskList from './components/TaskList';
+
+function App() {
+  const [task, setResultado] = useState({
+    Text: '',
+  });
+
+  return (
+    <div>
+      <div>
+        <div>
+          <h2 className='app-title text-center'>My TaskList App!!!</h2>
+          <Header setResultado={setResultado} />
+          {task.Text !== '' ? (
+            <TaskList resultado={task} />
+          ) : null}
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
 export default App;
